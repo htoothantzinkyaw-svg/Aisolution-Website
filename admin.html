@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - AI-Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1c1c1c; /* Dark background */
+            color: #fff;
+            padding: 30px;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: auto;
+            background: #2c3e50; /* Dark blue container */
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2980b9; /* Blue text */
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #bdc3c7;
+            text-align: left;
+        }
+
+        .inquiry-count {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2980b9; /* Blue count */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #34495e; /* Darker blue border */
+        }
+
+        th {
+            background-color: #2980b9; /* Blue header */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #34495e; /* Darker blue for even rows */
+        }
+
+        tr:hover {
+            background-color: #3e4c59; /* Hover effect */
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .btn-back:hover {
+            background-color: #2471a3; /* Darker blue on hover */
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 15px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <p><strong>Total Inquiries:</strong> <span class="inquiry-count" id="inquiryCount">0</span></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Company</th>
+                    <th>Country</th>
+                    <th>Job Title</th>
+                    <th>Job Details</th>
+                </tr>
+            </thead>
+            <tbody id="inquiryTableBody"></tbody>
+        </table>
+        <a href="home.html" class="btn-back">← Back to Home</a>
+    </div>
+
+    <script>
+        // Retrieve data from local storage
+        const inquiries = JSON.parse(localStorage.getItem("inquiries")) || [];
+
+        // Get the table body and inquiry count elements
+        const tableBody = document.getElementById("inquiryTableBody");
+        const inquiryCount = document.getElementById("inquiryCount");
+
+        // Set the inquiry count dynamically
+        inquiryCount.textContent = inquiries.length;
+
+        // Populate the table with data
+        inquiries.forEach(inquiry => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${inquiry.username}</td>
+                <td>${inquiry.name}</td>
+                <td>${inquiry.email}</td>
+                <td>${inquiry.phone}</td>
+                <td>${inquiry.company}</td>
+                <td>${inquiry.country}</td>
+                <td>${inquiry.jobTitle}</td>
+                <td>${inquiry.jobDetails}</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

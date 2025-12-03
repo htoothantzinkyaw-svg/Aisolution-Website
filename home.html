@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="AI-Solutions offers tailored AI software and digital transformation strategies.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Solutions - Your AI Partner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d1b2a;
+            --text-color: #e0e0e0;
+            --header-bg: #1b263b;
+            --accent-color: #2196f3;
+            --card-bg: #1b263b;
+            --footer-bg: #0d1b2a;
+            --section-title: #64ffda;
+        }
+
+        .light-mode {
+            --bg-color: #ffffff;
+            --text-color: #222;
+            --header-bg: #f0f0f0;
+            --accent-color: #1976d2;
+            --card-bg: #ffffff;
+            --footer-bg: #eeeeee;
+            --section-title: #1976d2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--header-bg);
+            padding: 20px 40px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        #themeToggle {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)),
+                        url('https://www.cio.com/wp-content/uploads/2025/02/3829539-0-75501800-1740132217-shutterstock_2482705481.jpg?resize=1024%2C576&quality=50&strip=all') no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 120px 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero a {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero a:hover {
+            background-color: #1769aa;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 60px 40px;
+            text-align: center;
+            background-color: var(--card-bg);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        section h3 {
+            font-size: 32px;
+            color: var(--section-title);
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .section-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .section-img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--text-color);
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--section-title);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #1b263b;
+            padding-top: 10px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .value-box {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-box strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--section-title);
+        }
+    </style>
+</head>
+
+<body class="dark-mode">
+
+    <header>
+        <h1>AI-Solutions</h1>
+        <nav>
+            <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="prosol.html">Project Solution</a></li>
+            <li><a href="us.html">About Us</a></li>
+            <li><a href="g.html">Gallery</a></li>
+            <li><a href="fb.html">Feedback</a></li>
+            <li><a href="index.html">Contact Us</a></li>
+            <li><a href="login.html">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+        <button id="themeToggle">Toggle Theme</button>
+    </header>
+
+    <div id="hero" class="hero">
+        <h2>AI-Solutions : Future-Ready AI for Smarter Decisions</h2>
+      
+        <a href="index.html">Get in Touch</a>
+    </div>
+    <section class="about-section fade-in">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="img\aboutus.png" alt="AI Robot">
+                    </div>
+                    <div class="about-content">
+                    <span class="tag">About Us</span>
+                    <h3>We Make Your Business Smarter<br> with Artificial Intelligence</h3>
+                    <p>
+                        We specialise in AI-driven solutions that streamline processes, optimise performance,
+                        and enhance decision-making. Our expert team delivers results by combining innovation,
+                        data, and scalable technology.
+                    </p>
+                    <p>
+                        Whether you're a small business or a global enterprise, we tailor AI solutions to your
+                        goals—improving efficiency and competitiveness.
+                    </p>
+ 
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Award Winning</li>
+                        <li><i class="fas fa-check"></i> 24/7 Support</li>
+                        <li><i class="fas fa-check"></i> Professional Staff</li>
+                        <li><i class="fas fa-check"></i> Fair Prices</li>
+                    </ul>
+
+                    <a href="us.html" class="btn">Read More</a>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us" class="why-section fade-in">
+            <div class="why-container">
+                <div class="why-text">
+                    <span class="tag">Why Choose Us</span>
+                    <h3>We're Best in AI Industry with 5 Years of Experience</h3>
+                    <p>
+                        At AI-Solutions, we combine cutting-edge technology with deep industry expertise to deliver smart, scalable, and secure solutions. Our mission is to empower organisations to make data-driven decisions, automate operations, and gain a competitive edge through AI.
+                    </p>
+                    <ul class="why-list">
+                        <li><i class="fas fa-check-circle"></i> Proven success across multiple industries</li>
+                        <li><i class="fas fa-check-circle"></i> Custom AI tools built for your business needs</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated support and expert consulting</li>
+                    </ul>
+                    <div class="why-cards">
+                        <div class="why-card">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4 class="count-up" data-target="9999">0</h4>
+                                <p>Happy Clients</p>
+                            </div>
+                        </div>
+                        <div class="why-card">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <h4 class="count-up" data-target="9999">0</h4>
+                                <p>Project Complete</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-image">
+                <img src="img/whychoss.png" alt="AI Robot" />
+                </div>
+            </div>
+        </section>
+
+   <section id="solutions" class="solutions-section fade-in">
+        <div class="solutions-container">
+            <div class="solutions-text">
+            <span class="tag">Our Services</span>
+            <h3>Our Excellent AI Solutions<br>For Your Business</h3>
+            <p>
+                Discover how our intelligent solutions can automate processes, deliver insights, and
+                elevate decision-making across industries. Let AI streamline your operations and accelerate innovation.
+            </p>
+      
+            </div>
+            <div class="solutions-grid">
+            <div class="solution-card">
+                <i class="fas fa-robot"></i>
+                <h4>Robotic Automation</h4>
+                <p>Automate complex workflows and repetitive tasks to improve productivity and reduce human error.</p>
+                <a href="prosol.html">Read More</a>
+            </div>
+            <div class="solution-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Education & Science</h4>
+                <p>Enhance learning and research using AI-driven platforms and intelligent content delivery.</p>
+                <a href="prosol.html">Read More</a>
+            </div>
+            <div class="solution-card">
+                <i class="fas fa-bolt"></i>
+                <h4>Machine Learning</h4>
+                <p>Train and deploy custom machine learning models tailored to your specific data challenges.</p>
+                <a href="prosol.html">Read More</a>
+            </div>
+            <div class="solution-card">
+                <i class="fas fa-brain"></i>
+                <h4>Predictive Analysis</h4>
+                <p>Use data trends and AI forecasting to make proactive, smarter business decisions.</p>
+                <a href="prosol.html">Read More</a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section fade-in">
+            <h3>Recent Projects</h3>
+            <p>Explore some of our most impactful projects across various industries, where we applied AI to solve real-world challenges.</p>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                <img src="img/health.webp" alt="Healthcare AI Dashboard" />
+                <h4>AI Healthcare Dashboard</h4>
+                <p>Designed a real-time patient monitoring system using AI analytics and predictive alerts.</p>
+                </div>
+
+                <div class="project-card">
+                <img src="img/retail.png" alt="Retail Chatbot" />
+                <h4>Retail Chatbot</h4>
+                <p>Developed a multilingual AI chatbot to enhance customer service across e-commerce platforms.</p>
+                </div>
+
+                <div class="project-card">
+                <img src="img/pmain.jpg" alt="Predictive Maintenance" />
+                <h4>Predictive Maintenance</h4>
+                <p>Built a machine learning model to reduce downtime in manufacturing by predicting equipment failure.</p>
+                </div>
+
+                <div class="project-card">
+                <img src="img/scity.jpg" alt="Smart City Traffic AI" />
+                <h4>Smart City Traffic AI</h4>
+                <p>Implemented AI-driven traffic flow optimization to reduce congestion and improve urban mobility.</p>
+                </div>
+
+                <div class="project-card">
+                <img src="img/ffdet.jpg" alt="Financial Fraud Detection" />
+                <h4>Financial Fraud Detection</h4>
+                <p>Created a deep learning system for identifying unusual banking activities in real time.</p>
+                </div>
+            </div>
+    </section>
+
+       <section id="feedback" class="feedback-section fade-in">
+                <div class="feedback-container">
+                        <div class="feedback-text">
+                        <span class="tag">Feedback</span>
+                        <h3>What Say Our Clients!</h3>
+                        <p>
+                            Hear from some of our satisfied clients about how AI-Solutions helped them innovate and succeed.
+                        </p>
+                        <a href="fb.html" class="btn">Read More</a>
+                        </div>
+
+                    <div class="testimonial-carousel">
+
+                            <div class="testimonial-slide active">
+                                <p><i class="fas fa-quote-left"></i> AI-Solutions exceeded our expectations with seamless deployment and reliable support.</p>
+                                <div class="client-info">
+                                <img src="img/janedoe.png" alt="Client">
+                                <div>
+                                    <h4>Jane Doe</h4>
+                                    <span>CTO, HealthSync</span>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="testimonial-slide">
+                                <p><i class="fas fa-quote-left"></i> Their machine learning model helped reduce downtime and improve our decision-making.</p>
+                                <div class="client-info">
+                                <img src="img/wy.jpg" alt="Client">
+                                <div>
+                                    <h4>Won Young</h4>
+                                    <span>Data Manager, AutoCore</span>
+                                </div>
+                            </div>
+                    </div>
+
+                        <div class="testimonial-slide">
+                            <p><i class="fas fa-quote-left"></i> Professional, forward-thinking, and dedicated—AI-Solutions is a game changer.</p>
+                                <div class="client-info">
+                                    <img src="img/kari.webp" alt="Client">
+                                    <div>
+                                        <h4>Sara Kim</h4>
+                                        <span>COO, FinTechLab</span>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="carousel-dots">
+                                <span class="dot active" data-slide="0"></span>
+                                <span class="dot" data-slide="1"></span>
+                                <span class="dot" data-slide="2"></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+   <section id="latest-articles" class="latest-articles-section fade-in">
+            <h3>Latest Insights & Articles</h3>
+            <p>
+                Stay informed with our in-depth articles on the latest trends in AI, cybersecurity, digital transformation, and more.
+                Discover how these advancements are shaping industries and driving innovation.
+            </p>
+
+            <div class="articles-grid">
+                <div class="article-card">
+                <img src="img/healai.jpg" alt="AI in Healthcare" />
+                <h4>AI in Healthcare: Revolutionizing Patient Care</h4>
+                <p>Explore how AI-powered solutions are transforming the healthcare industry by enabling faster diagnosis, personalized treatments, and improved patient care.</p>
+                <a href>Read More</a>
+                </div>
+
+                <div class="article-card">
+                <img src="img/cyai.jpg" alt="Cybersecurity Best Practices" />
+                <h4>Top Cybersecurity Practices for the Modern Enterprise</h4>
+                <p>Discover the best practices for safeguarding your business from evolving cyber threats and how AI is playing a role in enhancing cybersecurity measures.</p>
+                <a href>Read More</a>
+                </div>
+
+                <div class="article-card">
+                <img src="img/finai.jpg" alt="AI in Finance" />
+                <h4>Leveraging AI for Financial Predictions</h4>
+                <p>Understand how machine learning and AI algorithms are helping financial institutions predict market trends, optimize investments, and reduce risks.</p>
+                <a href>Read More</a>
+                </div>
+
+                <div class="article-card">
+                <img src="img/cityai.jpg" alt="Smart Cities and AI" />
+                <h4>Building Smart Cities with AI Solutions</h4>
+                <p>Learn how AI technologies are driving the creation of smarter cities, optimizing traffic systems, and improving sustainability for future urban living.</p>
+                <a href>Read More</a>
+                </div>
+
+                <div class="article-card">
+                <img src="img/diai.jpg" alt="Digital Transformation Trends" />
+                <h4>Top Trends in Digital Transformation</h4>
+                <p>Explore the latest digital transformation trends and how businesses are adopting AI, automation, and cloud solutions to stay competitive in a fast-paced market.</p>
+                <a href>Read More</a>
+                </div>
+            </div>
+        </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>AI-Solutions empowers businesses with cutting-edge AI software and digital strategies. Let’s shape the future together.</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: aisolu456@gmail.com</p>
+                <p>Phone: +44 07548965888</p>
+                <p>Address: Somewhere in the world</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;AI Solution : 2020 - 2025 (All Right Reserved)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+
+        // Theme toggle
+        const toggleButton = document.getElementById('themeToggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+            } else {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+            }
+        });
+    </script>
+    <script>
+  // Count-up on scroll
+  const counters = document.querySelectorAll(".count-up");
+  let counted = false;
+
+  function animateCountUp() {
+    if (counted) return;
+
+    const section = document.querySelector("#why-choose-us");
+    const sectionTop = section.getBoundingClientRect().top;
+    const trigger = window.innerHeight - 100;
+
+    if (sectionTop < trigger) {
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute("data-target");
+          const count = +counter.innerText;
+          const increment = target / 100;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 15);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+      counted = true;
+    }
+  }
+
+  window.addEventListener("scroll", animateCountUp);
+</script>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".testimonial-slide");
+  const dots = document.querySelectorAll(".carousel-dots .dot");
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+      dots[i].classList.toggle("active", i === index);
+    });
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    let next = (currentSlide + 1) % slides.length;
+    showSlide(next);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      let index = parseInt(dot.getAttribute("data-slide"));
+      showSlide(index);
+    });
+  });
+
+  setInterval(nextSlide, 5000); // rotate every 5 seconds
+</script> 
+
+</body>
+</html>

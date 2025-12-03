@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="AI-Solutions offers tailored AI software and digital transformation strategies.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Solutions - Your AI Partner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d1b2a;
+            --text-color: #e0e0e0;
+            --header-bg: #1b263b;
+            --accent-color: #2196f3;
+            --card-bg: #1b263b;
+            --footer-bg: #0d1b2a;
+            --section-title: #64ffda;
+        }
+
+        .light-mode {
+            --bg-color: #ffffff;
+            --text-color: #222;
+            --header-bg: #f0f0f0;
+            --accent-color: #1976d2;
+            --card-bg: #ffffff;
+            --footer-bg: #eeeeee;
+            --section-title: #1976d2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--header-bg);
+            padding: 20px 40px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        #themeToggle {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)),
+                        url('https://as1.ftcdn.net/v2/jpg/05/06/32/62/1000_F_506326245_2GtSGEjKLDtpHS0FSkEBs4gV34DmTtS5.jpghttps://as1.ftcdn.net/v2/jpg/05/39/65/40/1000_F_539654005_M7XZRGAG3TAarymgapSSgSUdgkNKQL2G.jpg') no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 120px 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero a {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero a:hover {
+            background-color: #1769aa;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 60px 40px;
+            text-align: center;
+            background-color: var(--card-bg);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        section h3 {
+            font-size: 32px;
+            color: var(--section-title);
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .section-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .section-img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--text-color);
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--section-title);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #1b263b;
+            padding-top: 10px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .value-box {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-box strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--section-title);
+        }
+    </style>
+</head>
+
+<body class="dark-mode">
+
+  <header>
+    <h1>AI-Solutions</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="prosol.html">Project Solution</a></li>
+        <li><a href="us.html">About Us</a></li>
+        <li><a href="g.html">Gallery</a></li>
+        <li><a href="fb.html">Feedback</a></li>
+        <li><a href="index.html">Contact Us</a></li>
+        <li><a href="login.html">Admin Dashboard</a></li>
+      </ul>
+    </nav>
+    <button id="themeToggle">Toggle Theme</button>
+  </header>
+
+  <div class="hero">
+    <h1>About Us</h1>
+    <p>At AI-Solutions, we combine cutting-edge technology with deep industry expertise to deliver smart, scalable, and secure solutions.</p> 
+    <p>Our mission is to empower businesses to make data-driven decisions, automate operations, and gain a competitive edge through AI.</p>
+  </div>
+
+  <section>
+    <h2>Who We Are</h2>
+    <p>We are a passionate team of innovators and problem-solvers committed to building intelligent, scalable solutions that help businesses thrive. Our engineering-driven approach ensures that every product is crafted with precision, scalability, and security in mind.</p>
+    <p>At AI-Solutions, we understand that technology is a tool to create real-world impact. Our goal is to deliver the most advanced AI solutions tailored to meet the unique needs of each business we serve. We work hand-in-hand with our clients, providing them with the tools they need to succeed in an ever-evolving digital landscape.</p>
+  </section>
+
+  <section>
+    <h2>Our Values</h2>
+    <div class="values">
+      <div class="value-box">
+        <strong>Innovation</strong>
+        <p>We embrace emerging technologies to develop innovative solutions that drive business growth. Our solutions are designed to stay ahead of the curve, anticipating trends before they even emerge.</p>
+      </div>
+      <div class="value-box">
+        <strong>Integrity</strong>
+        <p>We believe in building trust through transparency, honesty, and open communication. Our clients know they can rely on us to provide straightforward, truthful insights that lead to better decision-making.</p>
+      </div>
+      <div class="value-box">
+        <strong>Excellence</strong>
+        <p>We deliver high-quality, reliable, and scalable solutions that meet the highest industry standards. Excellence is embedded in every aspect of our work, from design to execution and support.</p>
+      </div>
+      <div class="value-box">
+        <strong>Collaboration</strong>
+        <p>We work closely with clients to ensure that every solution is aligned with their business goals. Our team is dedicated to fostering collaboration, both internally and externally, to achieve the best results for our clients.</p>
+      </div>
+
+      <div class="value-box">
+        <strong>Sustainability</strong>
+        <p>We are committed to creating solutions that are not only effective but also sustainable. By adopting eco-friendly practices, we aim to minimize our environmental impact while delivering the highest quality results.</p>
+      </div>
+      <div class="value-box">
+        <strong>Customer Success</strong>
+        <p>We believe that our success is measured by our clients' success. We prioritize customer satisfaction and work tirelessly to ensure that our solutions meet their needs, exceed expectations, and drive long-term growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+ <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>AI-Solutions empowers businesses with cutting-edge AI software and digital strategies. Let’s shape the future together.</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: aisolu456@gmail.com</p>
+                <p>Phone: +44 07548965888</p>
+                <p>Address: Somewhere in the world</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;AI Solution : 2020 - 2025 (All Right Reserved)</p>
+        </div>
+  </footer>
+
+  <script>
+    const toggleButton = document.getElementById('themeToggle');
+    const body = document.body;
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        body.classList.remove('dark-mode');
+      } else {
+        body.classList.add('dark-mode');
+        body.classList.remove('light-mode');
+      }
+    });
+  </script>
+
+</body>
+</html>

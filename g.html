@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="AI-Solutions offers tailored AI software and digital transformation strategies.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Solutions - Your AI Partner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+       :root {
+            --bg-color: #0d1b2a;
+            --text-color: #e0e0e0;
+            --header-bg: #1b263b;
+            --accent-color: #2196f3;
+            --card-bg: #1b263b;
+            --footer-bg: #0d1b2a;
+            --section-title: #64ffda;
+        }
+
+        .light-mode {
+            --bg-color: #ffffff;
+            --text-color: #222;
+            --header-bg: #f0f0f0;
+            --accent-color: #1976d2;
+            --card-bg: #ffffff;
+            --footer-bg: #eeeeee;
+            --section-title: #1976d2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--header-bg);
+            padding: 20px 40px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        #themeToggle {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)),
+                        url('https://images.pexels.com/photos/1674049/pexels-photo-1674049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 120px 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero a {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero a:hover {
+            background-color: #1769aa;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 60px 40px;
+            text-align: center;
+            background-color: var(--card-bg);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        section h3 {
+            font-size: 32px;
+            color: var(--section-title);
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .section-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .section-img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--text-color);
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--section-title);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #1b263b;
+            padding-top: 10px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .value-box {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-box strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--section-title);
+        }
+   
+        /* Gallery Section */
+        .gallery-container {
+          max-width: 1200px;
+          margin: 2rem auto;
+          padding: 0 1rem;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+        }
+
+        .gallery-item {
+          background: var(--card-bg);
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 300px; /* Fixed height for consistent size */
+        }
+
+        .gallery-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+          transform: scale(1.1);
+        }
+
+        .caption {
+          padding: 1rem;
+          font-size: 1rem;
+          color: var(--caption-color);
+          text-align: center;
+          background-color: #f0f0f0;
+          border-top: 1px solid #ddd;
+        }
+
+        .dark-mode .caption {
+    color: #000000; /* Light color for dark mode */
+    }
+
+    /* Media Queries for smaller devices */
+    @media (max-width: 768px) {
+      
+      .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on small screens */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-container {
+        grid-template-columns: 1fr; /* One column on very small screens */
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+ <header>
+        <h1>AI-Solutions</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="prosol.html">Project Solution</a></li>
+                <li><a href="us.html">About Us</a></li>
+                <li><a href="g.html">Gallery</a></li>
+                <li><a href="fb.html">Feedback</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+                <li><a href="login.html">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+        <button id="themeToggle">Toggle Theme</button>
+    </header>
+ 
+  <div class="hero">
+    <h1>Tech Event Gallery</h1>
+    <p>Explore our latest tech highlights and conferences</p>
+  </div>
+
+  <section class="gallery-container">
+    <div class="gallery-item" onclick="openModal('img/1.jpg')">
+      <img src="img/Con1.jpg" alt="Event 1">
+      <div class="caption">Tech Conference - 2023</div>
+    </div>
+    <div class="gallery-item" onclick="openModal('img/2.jpg')">
+      <img src="img/Con2.jpg" alt="Event 2">
+      <div class="caption">AI Innovation Expo</div>
+    </div>
+    <div class="gallery-item" onclick="openModal('img/3.jpeg')">
+      <img src="img/Con3.jpg" alt="Event 3">
+      <div class="caption">Startup Networking Event</div>
+    </div>
+    <div class="gallery-item" onclick="openModal('img/4.jpg')">
+      <img src="img/Con4.jpg" alt="Event 4">
+      <div class="caption">Tech Talk on AI</div>
+    </div>
+    <div class="gallery-item" onclick="openModal('img/5.jpg')">
+      <img src="img/Con5.jpg" alt="Event 5">
+      <div class="caption">Future of Robotics</div>
+    </div>
+    <div class="gallery-item" onclick="openModal('img/6.jpeg')">
+      <img src="img/Con6.jpg" alt="Event 6">
+      <div class="caption">VR Experience Launch</div>
+    </div>
+    <div class="gallery-item" onclick="openModal('img/7.jpg')">
+      <img src="img/Con7.jpg" alt="Event 7">
+      <div class="caption">Tech Leaders Summit</div>
+    </div>
+    <div class="gallery-item" onclick="openModal('img/8.webp')">
+      <img src="img/Con8.jpg" alt="Event 8">
+      <div class="caption">Global AI Forum</div>
+    </div>
+  </section>
+
+  <footer>
+ <div class="footer-container">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>AI-Solutions empowers businesses with cutting-edge AI software and digital strategies. Let’s shape the future together.</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: aisolu456@gmail.com</p>
+                <p>Phone: +44 07548965888</p>
+                <p>Address: Somewhere in the world</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;AI Solution : 2020 - 2025 (All Right Reserved)</p>
+        </div>
+  </footer>
+
+  <script>
+    function openModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = imageSrc;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.style.display = 'none';
+    }
+  </script>
+
+    <script>
+        // Fade-in animation
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+
+        // Theme toggle
+        const toggleButton = document.getElementById('themeToggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+            } else {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+            }
+        });
+    </script>
+</body>
+</html>
